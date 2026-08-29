@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A premium SQL and DBMS interview study reader with semantic reading, search, progress, and dark mode.">
+    <title>SQL Interview Prep Reader</title>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="mobile-backdrop" id="mobileBackdrop" hidden></div>
+
+    <header class="site-header">
+      <div class="header-left">
+        <button class="icon-button nav-toggle" id="navToggle" type="button" aria-label="Open navigation">Menu</button>
+        <div class="brand">
+          <strong>SQL Interview Prep</strong>
+          <span>DBMS / SQL</span>
+        </div>
+      </div>
+
+      <button class="search-trigger" id="searchTrigger" type="button">
+        <span>Search PDF documents...</span>
+        <kbd>Ctrl K</kbd>
+      </button>
+
+      <div class="header-controls">
+        <button class="button compact" id="headerPrevious" type="button">Previous</button>
+        <button class="button compact" id="headerNext" type="button">Next</button>
+        <button class="icon-button" id="fontMinus" type="button" aria-label="Zoom out">-</button>
+        <button class="icon-button" id="fontPlus" type="button" aria-label="Zoom in">+</button>
+        <button class="icon-button" id="themeToggle" type="button" aria-label="Toggle theme">Dark</button>
+      </div>
+    </header>
+
+    <div class="docs-layout">
+      <aside class="left-sidebar" id="leftSidebar" aria-label="Course navigation">
+        <div class="sidebar-inner">
+          <div class="sidebar-heading">
+            <span>SQL Interview Prep</span>
+            <button class="icon-button close-nav" id="closeNav" type="button" aria-label="Close navigation">Close</button>
+          </div>
+
+          <section class="overall-card" aria-label="Study progress">
+            <div class="overall-top">
+              <span>Overall</span>
+              <strong id="overallPercent">0%</strong>
+            </div>
+            <div class="meter" aria-hidden="true"><span id="overallBar"></span></div>
+            <div class="overall-meta">
+              <span id="completedCount">0 complete</span>
+              <span id="totalPages">0 pages</span>
+            </div>
+          </section>
+
+          <label class="filter-box">
+            <span>Filter chapters</span>
+            <input id="chapterFilter" type="search" placeholder="joins, windows, cheatsheet">
+          </label>
+
+          <div class="nav-section-title">
+            <span>Study Plan</span>
+            <button id="resetProgress" class="text-button" type="button">Reset</button>
+          </div>
+
+          <nav id="chapterList" class="chapter-list"></nav>
+        </div>
+      </aside>
+
+      <main class="main-reader">
+        <div class="chapter-status">
+          <span id="chapterMeta">Chapter 1 of 9</span>
+          <div class="chapter-meter" aria-hidden="true"><span id="chapterProgressBar"></span></div>
+          <strong id="chapterPercent">0%</strong>
+        </div>
+
+        <article id="readerContent" class="reader-content" tabindex="-1">
+          <div class="loading-state">Loading study material...</div>
+        </article>
+
+        <nav class="page-navigation" aria-label="Chapter navigation">
+          <button id="previousChapter" class="button" type="button">Previous</button>
+          <span id="chapterPosition">1 / 9</span>
+          <button id="markComplete" class="button primary" type="button">Mark Complete</button>
+          <a id="sourcePdf" class="button" href="DBMS/SQL/00-start-here.pdf" target="_blank" rel="noopener">Source PDF</a>
+          <button id="nextChapter" class="button" type="button">Next</button>
+        </nav>
+      </main>
+
+      <aside class="right-sidebar" aria-label="On this page">
+        <div class="toc-card">
+          <span>On This Page</span>
+          <nav id="tocList" class="toc-list"></nav>
+        </div>
+      </aside>
+    </div>
+
+    <dialog id="searchDialog" class="search-dialog">
+      <div class="search-panel">
+        <div class="search-panel-top">
+          <label class="global-search">
+            <span>Search all content</span>
+            <input id="globalSearchInput" type="search" placeholder="Top 50, Core Library, Scenario">
+          </label>
+          <button id="closeSearch" class="icon-button" type="button" aria-label="Close search">Esc</button>
+        </div>
+        <div id="searchResults" class="search-results"></div>
+      </div>
+    </dialog>
+
+    <script src="script.js"></script>
+  </body>
+</html>
